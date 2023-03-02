@@ -29,13 +29,29 @@ const every = array.every((product) => {
   return product.price > 1000
 })
 
-console.log({ every })
+// console.log({ every })
 
 // .map (mapear) - pega o array original e cria outro baseado nesse
 
 const map = array.map((product) => {
-  console.log(product)
-  return true
+  return {
+    ...product,
+    subtotal: product.quantity * product.price,
+  }
 })
 
-console.log({ map })
+// console.log({ map })
+
+//.filter cria um novo array - toda vez que a condição for true
+const filter = array.filter((product) => {
+  return product.quantity > 1
+})
+
+// console.log({ filter })
+
+// . reduce
+const reduce = array.reduce((accumulator, product) => {
+  return accumulator + (product.price * product.quantity)
+}, 0)
+
+console.log({ reduce })
